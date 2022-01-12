@@ -2,18 +2,6 @@ import 'package:hive/hive.dart';
 
 part 'todo.g.dart';
 
-enum Status{
-  all,
-  completed,
-  uncompleted,
-}
-
-enum Priorities{
-  high,
-  medium,
-  low,
-  none
-}
 
 @HiveType(typeId: 0)
 class Todo {
@@ -29,17 +17,11 @@ class Todo {
   @HiveField(3)
   final DateTime date;
 
-  @HiveField(4)
-  final Status status;
 
-  @HiveField(5)
-  final Priorities priority;
-
-  Todo({required this.status,
+  Todo({
     required this.id,
     required this.date,
     required this.description,
     required this.item,
-    required this.priority
   });
 }

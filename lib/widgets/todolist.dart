@@ -4,8 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:todoapp/models/todo.dart';
 
 class TodoList extends StatelessWidget {
-  final List<Todo> todos;
-  TodoList({Key? key, required this.todos}) : super(key: key);
+  TodoList({Key? key}) : super(key: key);
 
   final dynamic currentTime = DateFormat.jm().format(DateTime.now());
 
@@ -16,7 +15,7 @@ class TodoList extends StatelessWidget {
 
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.58,
-      child: todos.isNotEmpty ?  ListView.builder(itemCount: todoBox.length,
+      child: todoBox.isNotEmpty ?  ListView.builder(itemCount: todoBox.length,
           itemBuilder: (BuildContext ctx, index){
 
         final todoItems = todoBox.getAt(index) as Todo;
@@ -32,7 +31,7 @@ class TodoList extends StatelessWidget {
         );
           }):
           const Center(
-            child: Text('Oops Your Todo is Empty',
+            child: Text('Oops!!! Your Todo is very Empty',
               style: TextStyle(fontWeight: FontWeight.bold,
                 fontSize: 20
               ),),

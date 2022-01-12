@@ -33,10 +33,10 @@ class _TodoInputState extends State <TodoInput> {
                     decoration: InputDecoration(labelText: 'Title'),
                   )),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 child: TextField(
                   controller:_descriptionController,
-                  decoration: InputDecoration(labelText: 'Description'),
+                  decoration: const InputDecoration(labelText: 'Description'),
                   onSubmitted: (_) {
                     _submitdata();
                   },
@@ -44,7 +44,7 @@ class _TodoInputState extends State <TodoInput> {
               ),
               TextButton(
                   onPressed: _submitdata,
-                  child: Text('Add Todo'))
+                  child: const Text('Add Todo'))
             ],
           ),
         ));

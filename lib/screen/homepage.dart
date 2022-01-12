@@ -16,12 +16,9 @@ class HomePage extends StatefulWidget{
 
 class _HomePageState extends State<HomePage> {
 
-   final List <Todo> _todos  = [];
-
    void _addtodo(String item, String description){
-     final newtodo = Todo(status: Status.all, id: DateTime.now().toString(),
-         date: DateTime.now(), description: description, item: item,
-         priority: Priorities.low);
+     final newtodo = Todo( id: DateTime.now().toString(),
+         date: DateTime.now(), description: description, item: item,);
      setState(() {
        Hive.box('todos').add(newtodo);
      });
@@ -37,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Todo App'),),
-      body: Container(
+      body: SingleChildScrollView(child:  Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child:Column(
         children: [const TopBar(),
@@ -45,9 +42,9 @@ class _HomePageState extends State<HomePage> {
           const SearchButton(),
           const SizedBox(height: 10,),
           const TodoStatus(),
-          TodoList(todos: _todos,),
+          TodoList(),
         ],
-      )),
+      ))),
       floatingActionButton: FloatingActionButton.extended(onPressed: (){_starttodo(context);},
           icon: const Icon(Icons.add_circle, size: 35,),
           label: const Text('Add new task', style: TextStyle(
