@@ -23,9 +23,11 @@ class TodoList extends StatelessWidget {
         return Card(
           elevation: 4,
           child: ListTile(
-            title: Text(todoItems.item, style: const TextStyle(fontWeight: FontWeight.bold),),
+            title: Text(todoItems.item,
+              style: const TextStyle(fontWeight: FontWeight.bold),),
             subtitle: Text(todoItems.description),
-            leading: const Icon(Icons.adjust_rounded),
+            leading: IconButton(onPressed: (){},
+                icon: const Icon(Icons.check_box_outline_blank)),
             trailing: Text(currentTime),
           ),
         );
