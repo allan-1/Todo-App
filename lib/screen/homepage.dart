@@ -38,11 +38,11 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(child:  Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child:Column(
-        children: [const TopBar(),
-          const SizedBox(height: 15,),
-          const SearchButton(),
-          const SizedBox(height: 10,),
-          const TodoStatus(),
+        children: const [TopBar(),
+          SizedBox(height: 15,),
+          SearchButton(),
+          SizedBox(height: 10,),
+          TodoStatus(),
           TodoList(),
         ],
       ))),
