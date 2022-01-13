@@ -34,10 +34,17 @@ class _TodoListState extends State<TodoList> {
             title: Text(todoItems.item,
               style: TextStyle(fontWeight: FontWeight.bold,
                   decoration:todoItems.completed ? TextDecoration.lineThrough
-                      : TextDecoration.none),),
+                      : TextDecoration.none,
+                decorationStyle: TextDecorationStyle.solid,
+                decorationColor: Colors.red
+              ),),
             subtitle: Text(todoItems.description,
-              style: TextStyle(decoration:todoItems.completed ? TextDecoration.lineThrough
-                    : TextDecoration.none),),
+              style: TextStyle(decoration:todoItems.completed ?
+              TextDecoration.lineThrough
+                    : TextDecoration.none,
+                  decorationStyle: TextDecorationStyle.solid,
+                  decorationColor: Colors.red
+              ),),
             leading: IconButton(onPressed: (){
               setState(() {
                 todoItems.toogleComplete();
