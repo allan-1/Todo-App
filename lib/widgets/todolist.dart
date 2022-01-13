@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:todoapp/models/todo.dart';
@@ -13,8 +12,6 @@ class TodoList extends StatefulWidget {
 
 class _TodoListState extends State<TodoList> {
 
-  final dynamic currentTime = DateFormat.jm().format(DateTime.now());
-
   @override
   Widget build(BuildContext context) {
     final todoBox =  Hive.box('todos');
@@ -26,6 +23,7 @@ class _TodoListState extends State<TodoList> {
           itemBuilder: (BuildContext ctx, index){
 
         final todoItems = todoBox.getAt(index) as Todo;
+        final dynamic currentTime = DateFormat.jm().format(todoItems.date);
 
 
         return Card(
@@ -50,8 +48,16 @@ class _TodoListState extends State<TodoList> {
                 todoItems.toogleComplete();
               });
             },
-                icon: Icon(todoItems.completed ? Icons.check_box : Icons.check_box_outline_blank )),
-            trailing: Text(currentTime),
+                icon: Icon(todoItems.completed ?
+                Icons.check_box : Icons.check_box_outline_blank )),
+            trailing:Row(children: [Text(currentTime),
+              IconButton(icon: const Icon(Icons.delete,
+              color: Colors.red,),
+              onPressed: (){
+                setState(() {
+                  todoBox.deleteAt(index);
+                });
+              },)],) ,
           ),
         );
           }):
