@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TodoInput extends StatefulWidget{
@@ -21,16 +20,15 @@ class _TodoInputState extends State <TodoInput> {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-        child: Card(
+    return Card(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                   child: TextField(
                     controller: _titleController,
-                    decoration: InputDecoration(labelText: 'Title'),
+                    decoration: const InputDecoration(labelText: 'Title'),
                   )),
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
@@ -47,6 +45,6 @@ class _TodoInputState extends State <TodoInput> {
                   child: const Text('Add Todo'))
             ],
           ),
-        ));
+        );
   }
 }

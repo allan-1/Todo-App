@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:uuid/uuid.dart';
 import 'package:todoapp/widgets/searchbutton.dart';
 import 'package:todoapp/widgets/status.dart';
 import 'package:todoapp/widgets/todoinput.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatefulWidget{
 class _HomePageState extends State<HomePage> {
 
    void _addtodo(String item, String description){
-     final newtodo = Todo( id: DateTime.now().toString(),
+     final newtodo = Todo( id: const Uuid().v4(),
          date: DateTime.now(), description: description, item: item,);
      setState(() {
        Hive.box('todos').add(newtodo);
